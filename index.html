@@ -93,60 +93,90 @@
         /* ==========================================
            3. 奢华极客头部：深色数字看板风格
            ========================================== */
-        .luxury-header {
-            background: linear-gradient(140deg, #091420 0%, #112336 100%);
-            padding: 45px 50px;
+        /* ==========================================
+           车信盟版：品牌大LOGO业务轻量化头部系统
+           ========================================== */
+           .luxury-header {
+            background: linear-gradient(135deg, #06111d 0%, #0d1e30 50%, #12283f 100%);
+            padding: 40px 50px 35px 50px;
             color: #ffffff;
             position: relative;
+            overflow: hidden;
         }
+        
+        /* 头部最顶端微轻量级数据带 */
         .header-top-ribbon {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
-        }
-        .gov-alliance-badge {
-            background: linear-gradient(90deg, #00d2b4 0%, #00bfa6 100%);
-            color: #ffffff;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 5px 14px;
-            border-radius: 4px;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 12px rgba(0, 191, 166, 0.25);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
         }
         .crypto-chain-node {
-            font-size: 12px;
-            color: var(--text-muted);
+            font-size: 11px;
+            color: #718599;
             font-family: monospace;
+            letter-spacing: 0.5px;
         }
-        .header-main-layout {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-        }
-        .header-main-layout h1 {
-            font-size: 32px;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            color: #ffffff;
-            margin-bottom: 8px;
-        }
-        .header-main-layout p {
-            font-size: 14px;
+        .header-right-status-badge {
+            font-size: 11px;
             color: #8da1b5;
-            font-weight: 400;
+            font-weight: 500;
         }
-        .header-meta-box {
-            text-align: right;
-            font-size: 13px;
-            color: #b0c4d6;
-            line-height: 1.8;
+
+        /* 核心主视觉区 */
+        .brand-main-hero-area {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 35px;
         }
-        .header-meta-box span {
+        
+        /* 国家级主Logo (CIECC大字 + 平台名称) */
+        .brand-logo-title-row {
+            font-size: 34px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .brand-logo-sub {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+        
+        /* 业务子主题：精细化缩小，拉开层级 */
+        .business-report-subtitle {
+            font-size: 16px;
+            color: #00bfa6; /* 使用标志性的车信盟科技青绿点缀 */
+            font-weight: 600;
+            letter-spacing: 4px; /* 适当拉开字间距，展现高端报告的气场 */
+            text-transform: uppercase;
+            padding-left: 2px;
+        }
+
+        /* 底部扁平化元数据网格 */
+        .header-metadata-grid-cxm {
+            display: flex;
+            gap: 40px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.08);
+            padding-top: 18px;
+        }
+        .meta-cxm-item {
+            font-size: 12.5px;
+            color: #8da1b5;
+        }
+        .meta-cxm-item span {
             color: #ffffff;
             font-weight: 700;
             font-family: monospace;
+            margin-left: 6px;
         }
 
         /* 滚动通知条声明 */
@@ -702,18 +732,20 @@
 
     <div class="luxury-header">
         <div class="header-top-ribbon">
-            <span class="gov-alliance-badge">CIECC二手车信息服务平台</span>
-            <div class="crypto-chain-node">分布式国信区块链存证哈希节点: 0x9A4F...B901</div>
+            <div class="header-right-status-badge">链路校验：<span style="color: var(--accent-green);">全原厂节点闭环</span></div>
         </div>
-        <div class="header-main-layout">
-            <div>
-                <h1>车辆维保报告</h1>
+        
+        <div class="brand-main-hero-area">
+            <div class="brand-logo-title-row">
+                CIECC <span class="brand-logo-sub">二手车信息服务平台</span>
             </div>
-            <div class="header-meta-box">
-                统一核验编码：<span>CIECC-REP-20260705X9</span><br>
-                可信发布时间：<span>2026-07-05 22:15:32</span><br>
-                链路校验级别：<span style="color: var(--accent-green);">全原厂节点闭环</span>
-            </div>
+            
+            <div class="business-report-subtitle">车辆维保档案数字化核验报告</div>
+        </div>
+
+        <div class="header-metadata-grid-cxm">
+            <div class="meta-cxm-item">统一核验编码：<span>CIECC-REP-20260705X9</span></div>
+            <div class="meta-cxm-item">可信发布时间：<span>2026-07-05 22:15:32</span></div>
         </div>
     </div>
 
