@@ -6,7 +6,7 @@
     <title>车辆维保报告</title>
     <style>
         /* ==========================================
-           1. 车信盟高定设计系统变量
+           1. 高定设计系统变量
            ========================================== */
         :root {
             --brand-dark: #09131e;       /* 极深科技底色 */
@@ -43,7 +43,7 @@
         }
 
         /* ==========================================
-           2. 纯CSS车信盟式防伪暗数字钢印
+           2. 纯CSS防伪暗数字钢印
            ========================================== */
         .verifiable-stamp {
             position: absolute;
@@ -51,7 +51,7 @@
             top: 135px;
             width: 115px;
             height: 115px;
-            /* 保持车信盟事故红 */
+            /* 保持事故红 */
             border: 3px dashed var(--accent-red); 
             border-radius: 50%;
             display: flex;
@@ -170,7 +170,7 @@
         }
         .luxury-module-block:last-child { border-bottom: none; }
         
-        /* 车信盟高级渐变条标题 */
+        /* 高级渐变条标题 */
         .module-luxury-title-bar {
             display: flex;
             justify-content: space-between;
@@ -344,7 +344,7 @@
         .text-prime { color: #1e76ec; }
 
         /* ==========================================
-           7. 车信盟灵魂：高精SVG车辆损伤雷达雷达图层组
+           7. 灵魂：高精SVG车辆损伤雷达雷达图层组
            ========================================== */
         .interactive-diagram-board {
             display: flex;
@@ -591,6 +591,101 @@
             font-size: 14px;
             margin-bottom: 8px;
         }
+
+                /* ==========================================
+        车信盟高定版：3D全真车身受损图谱系统
+        ========================================== */
+        .interactive-diagram-board {
+            display: flex;
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.03);
+            margin-bottom: 35px;
+        }
+
+        /* 左侧：完美复刻车信盟的青绿色微渐变背景框 */
+        .diagram-panel-left.cxm-gradient-bg {
+            width: 45%;
+            padding: 35px 30px;
+            background: linear-gradient(135deg, #02b199 0%, #0abfa7 50%, #11998e 100%);
+            color: #ffffff;
+            border-right: none;
+            display: flex;
+            flex-direction: column;
+        }
+        .panel-inner-title-cxm {
+            font-size: 18px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .badge-danger-split {
+            font-size: 11px;
+            background-color: rgba(255, 51, 75, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: #ffffff;
+            padding: 2px 10px;
+            border-radius: 4px;
+            margin-left: auto;
+            font-weight: 600;
+        }
+
+        /* 点状导向列表 */
+        .cxm-damage-list {
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+        }
+        .cxm-list-item {
+            font-size: 14.5px;
+            color: rgba(255, 255, 255, 0.75);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+        .cxm-list-item.active {
+            color: #ffffff;
+            font-weight: 800;
+        }
+        .bullet-dot {
+            width: 6px;
+            height: 6px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+        }
+        .bullet-dot.red {
+            background-color: #ff334b;
+            box-shadow: 0 0 8px #ff334b;
+        }
+
+        /* 右侧车身渲染区 */
+        .diagram-panel-right.cxm-render-chamber {
+            width: 55%;
+            padding: 30px;
+            background-color: #f8fafc; /* 使用温润的写实背景，更好地衬托白色3D车身 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 经典动态雷达波扩散 */
+        .radar-glow-ring {
+            fill: var(--accent-red);
+            transform-origin: 120px 33px; /* 精确锚定新车头x,y坐标 */
+            animation: cxm-radar-pulse 2.2s infinite cubic-bezier(0.25, 0, 0, 1);
+        }
+        @keyframes cxm-radar-pulse {
+            0% { r: 4px; opacity: 1; }
+            60% { r: 24px; opacity: 0.2; }
+            100% { r: 32px; opacity: 0; }
+        }
     </style>
 </head>
 <body>
@@ -681,47 +776,100 @@
         </div>
 
         <div class="interactive-diagram-board">
-            <div class="diagram-panel-left">
-                <div class="panel-inner-title">受损与修复部位快速索引组</div>
+    
+            <div class="diagram-panel-left cxm-gradient-bg">
+                <div class="panel-inner-title-cxm">
+                    <span class="tool-icon">🛠️</span> 维修部位
+                    <span class="badge-danger-split">1处异常已修复</span>
+                </div>
                 
-                <div class="damage-luxury-pill">
-                    <div class="pill-meta-left">
-                        <span class="bullet-index">1</span>
-                        <strong>前保险杠</strong> (物理撞击受损喷漆修复)
-                    </div>
-                    <span class="pill-date-right">2024/05</span>
+                <div class="cxm-damage-list">
+                    <div class="cxm-list-item active"><span class="bullet-dot red"></span>正前方 (1)</div>
+                    <div class="cxm-list-item"><span class="bullet-dot"></span>前方右侧 (0)</div>
+                    <div class="cxm-list-item"><span class="bullet-dot"></span>中间右侧 (0)</div>
+                    <div class="cxm-list-item"><span class="bullet-dot"></span>后方右侧 (0)</div>
+                    <div class="cxm-list-item"><span class="bullet-dot"></span>正后方 (0)</div>
+                    <div class="cxm-list-item"><span class="bullet-dot"></span>后方左侧 (0)</div>
+                    <div class="cxm-list-item"><span class="bullet-dot"></span>中间左侧 (0)</div>
+                    <div class="cxm-list-item"><span class="bullet-dot"></span>前方左侧 (0)</div>
                 </div>
-                <p style="font-size:12px; color: var(--text-muted); line-height: 1.6; padding: 5px;">
-                    * 标注说明：右侧高精图纸上的红色闪烁雷达环，代表原厂技术授权网络上报的历史物理拆装受损区域。
-                </p>
             </div>
-            <div class="diagram-panel-right">
-                <svg width="240" height="250" viewBox="0 0 240 250" style="display:block;">
-                    <rect x="25" y="50" width="14" height="30" rx="4" fill="#2c3e50"/>
-                    <rect x="201" y="50" width="14" height="30" rx="4" fill="#2c3e50"/>
-                    <rect x="25" y="170" width="14" height="30" rx="4" fill="#2c3e50"/>
-                    <rect x="201" y="170" width="14" height="30" rx="4" fill="#2c3e50"/>
+            
+            <div class="diagram-panel-right cxm-render-chamber">
+                <svg width="240" height="320" viewBox="0 0 240 320" style="display:block; overflow: visible;">
+                    <defs>
+                        <linearGradient id="cxm-white-body" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#e2e8f0"/>
+                            <stop offset="15%" stop-color="#ffffff"/>
+                            <stop offset="50%" stop-color="#f8fafc"/>
+                            <stop offset="85%" stop-color="#ffffff"/>
+                            <stop offset="100%" stop-color="#cbd5e1"/>
+                        </linearGradient>
+                        <linearGradient id="cxm-sky-roof" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#0f172a"/>
+                            <stop offset="100%" stop-color="#1e293b"/>
+                        </linearGradient>
+                        <linearGradient id="glass-reflection" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.5"/>
+                            <stop offset="30%" stop-color="#94a3b8" stop-opacity="0.2"/>
+                            <stop offset="100%" stop-color="#1e293b" stop-opacity="0.9"/>
+                        </linearGradient>
+                        <filter id="car-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.12"/>
+                        </filter>
+                    </defs>
+        
+                    <rect x="23" y="65" width="16" height="38" rx="5" fill="#1e293b"/>
+                    <rect x="25" y="73" width="3" height="22" rx="1" fill="#94a3b8"/>
+                    <rect x="201" y="65" width="16" height="38" rx="5" fill="#1e293b"/>
+                    <rect x="212" y="73" width="3" height="22" rx="1" fill="#94a3b8"/>
+                    <rect x="21" y="215" width="18" height="40" rx="5" fill="#1e293b"/>
+                    <rect x="23" y="224" width="3" height="22" rx="1" fill="#94a3b8"/>
+                    <rect x="201" y="215" width="18" height="40" rx="5" fill="#1e293b"/>
+                    <rect x="214" y="224" width="3" height="22" rx="1" fill="#94a3b8"/>
+        
+                    <path d="M 44 95 C 28 95, 26 102, 30 105 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+                    <path d="M 196 95 C 212 95, 214 102, 210 105 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        
+                    <path d="M 70 35 
+                             C 100 32, 140 32, 170 35 
+                             C 198 38, 206 55, 208 85 
+                             C 210 120, 208 200, 208 250
+                             C 208 275, 198 298, 175 302
+                             C 145 306, 95 306, 65 302
+                             C 42 298, 32 275, 32 250
+                             C 32 200, 30 120, 32 85
+                             C 34 55, 42 38, 70 35 Z" 
+                          fill="url(#cxm-white-body)" filter="url(#car-shadow)" stroke="#cbd5e1" stroke-width="1"/>
+        
+                    <path d="M 60 42 C 100 46, 140 46, 180 42" fill="none" stroke="#94a3b8" stroke-width="1.2"/>
+                    <path d="M 68 45 L 94 85 L 146 85 L 172 45" fill="none" stroke="#cbd5e1" stroke-width="1.5"/>
                     
-                    <rect x="42" y="30" width="156" height="195" rx="22" fill="none" stroke="#7f8c8d" stroke-width="2.5"/>
-                    <path d="M 42 70 L 198 70 M 42 185 L 198 185" fill="none" stroke="#bdc3c7" stroke-width="1.5"/>
-                    <rect x="55" y="80" width="130" height="95" rx="8" fill="none" stroke="#95a5a6" stroke-width="1.5"/>
-                    <path d="M 55 100 L 185 100 M 55 155 L 185 155" fill="none" stroke="#bdc3c7" stroke-width="1.5"/>
+                    <path d="M 62 92 C 90 88, 150 88, 178 92 L 188 122 C 140 128, 100 128, 52 122 Z" fill="url(#glass-reflection)" stroke="#475569" stroke-width="1"/>
+        
+                    <rect x="62" y="132" width="116" height="40" rx="6" fill="url(#cxm-sky-roof)" stroke="#334155" stroke-width="1"/>
+                    <rect x="62" y="177" width="116" height="36" rx="4" fill="url(#cxm-sky-roof)" stroke="#334155" stroke-width="1"/>
                     
-                    <path d="M 70 30 L 70 70 M 170 30 L 170 70" fill="none" stroke="#7f8c8d" stroke-width="2" stroke-dasharray="4,3"/>
-
-                    <circle cx="120" cy="30" r="15" class="radar-glow-ring" />
-                    <circle cx="120" cy="30" r="5" fill="var(--accent-red)" stroke="#ffffff" stroke-width="2" />
+                    <path d="M 56 222 C 90 218, 150 218, 184 222 L 178 245 C 140 248, 100 248, 62 245 Z" fill="url(#glass-reflection)" stroke="#475569" stroke-width="1"/>
+                    <path d="M 48 258 C 90 262, 150 262, 192 258" fill="none" stroke="#cbd5e1" stroke-width="1.5"/>
+                    <path d="M 65 292 C 100 295, 140 295, 175 292" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+        
+                    <circle cx="120" cy="33" r="16" class="radar-glow-ring" />
+                    <circle cx="120" cy="33" r="5" fill="var(--accent-red)" stroke="#ffffff" stroke-width="2.5" />
                     
-                    <rect x="114" y="9" width="12" height="12" rx="2" fill="var(--accent-red)" />
-                    <text x="120" y="18" font-size="9" fill="#ffffff" font-weight="bold" text-anchor="middle">1</text>
+                    <g transform="translate(142, 16)">
+                        <rect x="0" y="0" width="36" height="18" rx="3" fill="var(--accent-red)" />
+                        <text x="18" y="13" font-size="10" fill="#ffffff" font-weight="bold" text-anchor="middle">前杠</text>
+                    </g>
                 </svg>
-
-                <div class="color-legend-row">
-                    <div class="legend-item"><span class="legend-dot" style="background-color: var(--accent-red);"></span>事故受损 (1)</div>
-                    <div class="legend-item"><span class="legend-dot" style="background-color: var(--accent-orange);"></span>修复喷漆 (0)</div>
-                    <div class="legend-item"><span class="legend-dot" style="background-color: var(--accent-green);"></span>结构原厂 (正常)</div>
+        
+                <div class="color-legend-row" style="margin-top: 15px;">
+                    <div class="legend-item"><span class="legend-dot" style="background-color: var(--accent-red);"></span>事故受损</div>
+                    <div class="legend-item"><span class="legend-dot" style="background-color: var(--accent-orange);"></span>修复喷漆</div>
+                    <div class="legend-item"><span class="legend-dot" style="background-color: var(--accent-green);"></span>结构原厂</div>
                 </div>
             </div>
+            
         </div>
 
         <div class="luxury-timeline-container">
